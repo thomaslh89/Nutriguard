@@ -12,7 +12,7 @@ import SettingsScreen from "./containers/SettingsScreen";
 import SplashScreen from "./containers/SplashScreen";
 import ScanScreen from "./containers/ScanScreen";
 import ScanResult from "./containers/ScanResult";
-
+import SearchScreen from "./containers/SearchScreen";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -89,9 +89,9 @@ export default function App() {
                       <Stack.Screen
                         name="Home"
                         options={{
-                          title: "My App",
-                          headerStyle: { backgroundColor: "red" },
-                          headerTitleStyle: { color: "white" },
+                          title: "Nutriguard",
+                          headerStyle: { backgroundColor: "white" },
+                          headerTitleStyle: { color: "black" },
                         }}
                       >
                         {() => <HomeScreen />}
@@ -113,7 +113,11 @@ export default function App() {
                   options={{
                     tabBarLabel: "Scan",
                     tabBarIcon: ({ color, size }) => (
-                      <Ionicons name={"home"} size={size} color={color} />
+                      <Ionicons
+                        name={"barcode-outline"}
+                        size={size}
+                        color={color}
+                      />
                     ),
                   }}
                 >
@@ -122,9 +126,9 @@ export default function App() {
                       <Stack.Screen
                         name="Scan"
                         options={{
-                          title: "My Scan",
-                          headerStyle: { backgroundColor: "red" },
-                          headerTitleStyle: { color: "white" },
+                          title: "Scan",
+                          headerStyle: { backgroundColor: "white" },
+                          headerTitleStyle: { color: "black" },
                         }}
                       >
                         {() => <ScanScreen />}
@@ -160,6 +164,32 @@ export default function App() {
                         }}
                       >
                         {() => <SettingsScreen setToken={setToken} />}
+                      </Stack.Screen>
+                    </Stack.Navigator>
+                  )}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="SearchScreen"
+                  options={{
+                    tabBarLabel: "Search",
+                    tabBarIcon: ({ color, size }) => (
+                      <Ionicons
+                        name={"search-outline"}
+                        size={size}
+                        color={color}
+                      />
+                    ),
+                  }}
+                >
+                  {() => (
+                    <Stack.Navigator>
+                      <Stack.Screen
+                        name="Search"
+                        options={{
+                          title: "Search",
+                        }}
+                      >
+                        {() => <SearchScreen setToken={setToken} />}
                       </Stack.Screen>
                     </Stack.Navigator>
                   )}
