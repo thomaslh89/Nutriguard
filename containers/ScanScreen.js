@@ -47,32 +47,34 @@ export default function ScanScreen() {
 
   return (
     <View style={styles.container}>
-      <CameraView
-        style={styles.camera}
-        ref={cameraRef}
-        facing={facing}
-        onBarcodeScanned={handleBarcodeScanned}
-        autoFocus="on"
-        flashMode="off"
-        barcodeScannerSettings={{
-          barcodeTypes: [
-            "qr",
-            "ean13",
-            "aztec",
-            "codabar",
-            "code128",
-            "code39",
-            "code93",
-            "datamatrix",
-            "ean8",
-            "itf14",
-            "pdf417",
-            "upc_a",
-            "upc_e",
-          ],
-        }}
-      />
-      {isLoading && <ActivityIndicator size="large" color="#0000ff" />}
+      <View style={styles.containerCamera}>
+        <CameraView
+          style={styles.camera}
+          ref={cameraRef}
+          facing={facing}
+          onBarcodeScanned={handleBarcodeScanned}
+          autoFocus="on"
+          flashMode="off"
+          barcodeScannerSettings={{
+            barcodeTypes: [
+              "qr",
+              "ean13",
+              "aztec",
+              "codabar",
+              "code128",
+              "code39",
+              "code93",
+              "datamatrix",
+              "ean8",
+              "itf14",
+              "pdf417",
+              "upc_a",
+              "upc_e",
+            ],
+          }}
+        />
+        {isLoading && <ActivityIndicator size="large" color="#0000ff" />}
+      </View>
     </View>
   );
 }
@@ -83,8 +85,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  containerCamera: {
+    width: "80%",
+    height: "40%",
+    borderWidth: 1,
+    borderColor: "red",
+    borderRadius: 10,
+  },
   camera: {
-    width: "70%",
-    height: "30%",
+    flex: 1,
+    width: "95%",
+    height: "25%",
+    borderWidth: 1,
+
+    borderRadius: 10,
   },
 });

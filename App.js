@@ -13,6 +13,8 @@ import SplashScreen from "./containers/SplashScreen";
 import ScanScreen from "./containers/ScanScreen";
 import ScanResult from "./containers/ScanResult";
 import SearchScreen from "./containers/SearchScreen";
+import Header from "./components/Header";
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -89,9 +91,10 @@ export default function App() {
                       <Stack.Screen
                         name="Home"
                         options={{
-                          title: "Nutriguard",
+                          headerTitle: () => <Header />,
+
                           headerStyle: { backgroundColor: "white" },
-                          headerTitleStyle: { color: "black" },
+                          headerTitleStyle: { color: "white" },
                         }}
                       >
                         {() => <HomeScreen />}
@@ -126,9 +129,10 @@ export default function App() {
                       <Stack.Screen
                         name="Scan"
                         options={{
-                          title: "Scan",
+                          headerTitle: () => <Header />,
+
                           headerStyle: { backgroundColor: "white" },
-                          headerTitleStyle: { color: "black" },
+                          headerTitleStyle: { color: "white" },
                         }}
                       >
                         {() => <ScanScreen />}
@@ -137,7 +141,10 @@ export default function App() {
                       <Stack.Screen
                         name="ScanResult"
                         options={{
-                          title: "Resultscan",
+                          headerTitle: () => <Header />,
+
+                          headerStyle: { backgroundColor: "white" },
+                          headerTitleStyle: { color: "white" },
                         }}
                       >
                         {() => <ScanResult />}
@@ -160,7 +167,10 @@ export default function App() {
                       <Stack.Screen
                         name="Settings"
                         options={{
-                          title: "Settings",
+                          headerTitle: () => <Header />,
+
+                          headerStyle: { backgroundColor: "white" },
+                          headerTitleStyle: { color: "white" },
                         }}
                       >
                         {() => <SettingsScreen setToken={setToken} />}
@@ -186,7 +196,10 @@ export default function App() {
                       <Stack.Screen
                         name="Search"
                         options={{
-                          title: "Search",
+                          headerTitle: () => <Header />,
+
+                          headerStyle: { backgroundColor: "white" },
+                          headerTitleStyle: { color: "white" },
                         }}
                       >
                         {() => <SearchScreen setToken={setToken} />}
